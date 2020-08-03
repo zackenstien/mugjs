@@ -1,14 +1,19 @@
 "use strict"
 
-const Route = require('../app/route');
+const Route = require('../app/route'),
+      View = require('../template/view');
 
 Route.redirect('/search', 'https://google.com');
 
 Route.get('/test', function() {
     if (!this.session.get('firstLoad')) {
         this.session.set('firstLoad', true);
-        return `Hello, world!`;
+        return View('index', {
+            user: "World!"
+        });
     } else {
-        return `Hello again, world!`;
+        return View('index', {
+            user: "again, World!"
+        });
     }
 });
