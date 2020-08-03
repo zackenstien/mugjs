@@ -6,3 +6,60 @@ Mug.js is a full stack web framework written entirely in JavaScript.  It strives
 ## Features
 - Routing (including easy redirecting)
 - Controllers
+
+## Starting the Server
+The server can easily be run (right out of the box!) with the `startServer.js` file.
+```sh
+node startServer
+```
+
+## Basic Routing
+You can add routes in the `routes/web.js` file.  Everything should already be set up there, all you need to do is define your own routes.  You can use the `Route.HTTPMETHOD` function to add some routes to your website.
+
+It takes a string (that is the path to your web page) and a function that is called whenever said path is loaded up on a browser.  It will send whatever the function returns as the ending result of the web page, like so:
+```js
+Route.get('/', () => {
+    return 'Hello, world!';
+});
+```
+
+**Available Methods:**
+```js
+Route.get(path, callback);
+Route.post(path, callback);
+Route.put(path, callback);
+Route.patch(path, callback);
+Route.delete(path, callback);
+Route.options(path, callback);
+```
+
+Or, if you want to assign a path to a select multiple methods:
+```js
+Route.match(['get', 'post'], '/', function() {
+    return 'Hello, world!';
+});
+```
+Or if you want to allow all methods:
+```js
+Route.all('/', function() {
+    return 'Hello, world!';
+});
+```
+
+So whenever you go to `localhost` it should output
+```js
+Hello, world!
+```
+
+## Less Basic Routing
+You can define parameters in routes like you would in Express.JS, the only difference is how you get them. With Mug.js, they are passed as function arguments.
+```js
+Route.get('/:name', (name) => {
+    return `Hello, ${name}!`;
+});
+```
+
+Now when you go to `localhost/John` it will say:
+```
+Hello, John!
+```
