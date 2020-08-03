@@ -53,7 +53,7 @@ Server.start = (port) => {
                 }
             });
 
-            if (!found) {
+            if ((!found) && catchall !== null) {
                 /* If the route wasn't found, call the catchall controller. */
                 executeController(catchall, [], req, res);
             }
