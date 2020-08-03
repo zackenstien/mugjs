@@ -1,6 +1,6 @@
 {
   "name": "mugjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A full stack web framework written entirely in Javascript.",
   "main": "server.js",
   "scripts": {
