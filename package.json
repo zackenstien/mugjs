@@ -23,8 +23,5 @@
   ],
   "author": "Zack Pace",
   "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1",
-    "path-to-regexp": "0.1.17"
-  }
+  "dependencies": {}
 }
