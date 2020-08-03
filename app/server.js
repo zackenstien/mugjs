@@ -1,13 +1,10 @@
 // Import required modules.
 const Route = require('./route');
-const express = require('express');
+const http = require('http');
 const url = require('url');
 
 /* Main Server API object */
 let Server = {};
-
-/* Express app object */
-let app = express();
 
 /* Runs a controller */
 let executeController = (route, data, req, res) => {
@@ -22,7 +19,7 @@ let executeController = (route, data, req, res) => {
 /* Hosts the Sizzle project */
 Server.start = (port) => {
     //console.log("TEST");
-    app.all('*',(req, res) => {
+    http.createServer((req, res) => {
         let reqUrl = url.parse(req.url);
 
         let redirectFound = false;
