@@ -25,7 +25,43 @@ Server.start = (port) => {
     app.all('*',(req, res) => {
         let reqUrl = url.parse(req.url);
 
-        if (Route[`_${req.method.toLowerCase()}`] !== undefined) {
+        let redirectFound = false;
+        let redirectCatchall = null;
+        Route[`_redirect`].forEach(route => {
+            /* Check if correct route has been found to save computer resources */
+            if (!redirectFound) {
+                /* Check if current Route object is a catchall */
+                if (route.path == '*') {
+                    /* If it is a catchall, save if for later (to save resources) */
+                    redirectCatchall = route;
+                    return;
+                }
+                /* Get the data from the regexp */
+                let data = reqUrl.pathname.match(route.match);
+                if (data) {
+                    /* We've found the correct Route object!  Set found to true so we don't continue
+                       searching and wasting resources. */
+                    redirectFound = true;
+
+                    /* Redirect */
+                    res.writeHead(302, {
+                        'Location': route.controller
+                    });
+                    res.end();
+                }
+            }
+        });
+
+        if (redirectCatchall !== null) {
+            res.writeHead(302, {
+                'Location': redirectCatchall.controller
+            });
+            res.end();
+
+            return;
+        }
+
+        if ((!redirectFound) && Route[`_${req.method.toLowerCase()}`] !== undefined) {
             //console.log("TEST");
             let catchall = null;
             let found = false;
