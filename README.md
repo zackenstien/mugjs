@@ -47,7 +47,7 @@ Route.all('/', function() {
 ```
 
 So whenever you go to `localhost` it should output
-```js
+```
 Hello, world!
 ```
 
