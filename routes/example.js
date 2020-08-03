@@ -1,6 +1,5 @@
-const Route = require('./app/route');
-const Server = require('./app/server')
-//const { Route, Server, View } = require('sizzle');
+const Route = require('../app/route');
+const Server = require('../app/server')
 
 Route.get('*', () => {
     return `404 Not Found.  If you believe that this is an error, please contact the website admin.`;
@@ -16,7 +15,5 @@ Route.get('/hello/:name', (name) => {
 Route.get('/helloworld', () => {
     return `Hello, World!`
 })
-
-//console.log(Route._get[0].regex.keys)
 
 Server.start(80);
