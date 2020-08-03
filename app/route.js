@@ -1,5 +1,5 @@
 /* Load dependencies */
-const pathToRegexp = require("path-to-regexp");
+const pathToRegexp = require("./regexp");
 
 /* Main Route object. */
 let Route = {};
