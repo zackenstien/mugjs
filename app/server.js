@@ -86,6 +86,13 @@ Server.start = (port) => {
                 }
             });
 
+            if ((!found) && (!catchall)) {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.write(`Cannot ${req.method} '${reqUrl.pathname}'.`);
+                res.end();
+                return;
+            }
+
             if ((!found) && catchall !== null) {
                 /* If the route wasn't found, call the catchall controller. */
                 executeController(catchall, [], req, res);
