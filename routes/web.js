@@ -1,7 +1,7 @@
 const Route = require('../app/route');
 
-Route.redirect('/', '/test');
+Route.redirect('/search', 'https://google.com');
 
-Route.get('*', () => {
-    return `404 Not Found :(`;
+Route.get('/test', () => {
+    return `Hello, world!`;
 });
