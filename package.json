@@ -23,5 +23,7 @@
   ],
   "author": "Zack Pace",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "sessions": "0.0.2-7"
+  }
 }
