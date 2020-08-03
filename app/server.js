@@ -1,7 +1,7 @@
 // Import required modules.
-const Route = require('./route');
-const http = require('http');
-const url = require('url');
+const Route = require('./route'),
+      http = require('http'),
+      url = require('url');
 
 /* Main Server API object */
 let Server = {};
