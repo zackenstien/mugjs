@@ -1,8 +1,6 @@
 const Route = require('../app/route');
 
-Route.get('/', () => {
-    return `Hello, world!`;
-});
+Route.redirect('/', '/test');
 
 Route.get('*', () => {
     return `404 Not Found :(`;
