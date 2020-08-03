@@ -1,0 +1,30 @@
+{
+  "name": "sizzle",
+  "version": "1.0.0",
+  "description": "A full stack web framework written entirely in Javascript.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "sizzle",
+    "web",
+    "framework",
+    "frame",
+    "work",
+    "java",
+    "script",
+    "javascript",
+    "js",
+    "node.js",
+    "nodejs",
+    "node"
+  ],
+  "author": "Zack Pace",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path-to-regexp": "0.1.17"
+  }
+}
